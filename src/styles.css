@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* background-color: #343a40; */
+}
+
+.bg-sidebar{
+  background-color: #28244B;
+}
+
+.text-white{
+  color: white;
+}
+
+.divisor_secundario {
+  border-bottom: 1px solid;
+  padding: 0px 0;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.respons{
+  height: 100%;
+  display: flex;
+}
+
+.text-bold{
+  font-weight: bolder
+}
+
+.hover-lighten:hover {
+  color: #fff; /* cor mais clara ao passar o mouse */
+}

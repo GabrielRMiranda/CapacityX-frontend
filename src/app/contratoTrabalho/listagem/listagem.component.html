@@ -1,0 +1,29 @@
+<div class="content-area container-fluid position-relative respons" style="min-height: 100vh; padding-bottom: 80px;">
+  <form>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 mt-4" *ngFor="let contrato of contratosTrabalho">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 1">Júnior</h5>
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 2">Pleno</h5>
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 3">Sênior</h5>
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 4">Especialista</h5>
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 5">Coordenador</h5>
+            <h5 class="card-title" *ngIf="contrato.nivelTecnico === 6">Trainee</h5>
+            <p class="card-text mb-4">
+              Carga Horária: {{ contrato.cargaHoraria }} horas<br>
+              Status: {{ contrato.status }}<br>
+              Início: {{ contrato.inicioVigencia | date: 'dd/MM/yyyy' }}<br>
+              Fim: {{ contrato.fimVigencia | date: 'dd/MM/yyyy' }}
+            </p>
+            <a  routerLink="/edicao/{{contrato.id}}" class="btn btn-primary mt-auto">
+              <i class="fa-solid fa-pen-to-square"></i>
+              Editar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

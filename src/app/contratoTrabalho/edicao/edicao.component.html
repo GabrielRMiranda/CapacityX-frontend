@@ -1,0 +1,74 @@
+<div class="content-area position-relative" style="min-height: 100vh; padding-bottom: 80px;">
+  <form *ngIf="contratotrabalho" #formulario="ngForm" (ngSubmit)="salvar()" class="form-group">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <h4 class="my-3">
+            <span>Edição de Contratos de Trabalho</span>
+          </h4>
+          <p class="divisor_secundario"></p>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-12 col-sm-6 col-md-4">
+          <label>Nivel Técnico</label>
+           <select [(ngModel)]="contratotrabalho.nivelTecnico" id="nivelTecnico" name="nivelTecnico" class="form-control">
+            <option [ngValue]="1" selected>Junior</option>
+            <option [ngValue]="2" selected>Pleno</option>
+            <option [ngValue]="3" selected>Sênior</option>
+            <option [ngValue]="4" selected>Especialista</option>
+            <option [ngValue]="5" selected>Coordenador</option>
+            <option [ngValue]="6" selected>Trainee</option>
+           </select>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <label>Carga Horária</label>
+          <input type="text" [(ngModel)]="hora" id="cargaHoraria" name="cargaHoraria" class="form-control" (input)="formatarHora($event)" maxlength="5"/>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <label>Status</label>
+          <input type="text" [(ngModel)]="contratotrabalho.status" id="status" name="status" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-12 col-sm-6 col-md-6">
+          <label>Início Vigência</label>
+          <input
+            type="date"
+            [(ngModel)]="contratotrabalho.inicioVigencia"
+            id="inicioVigencia"
+            name="inicioVigencia"
+            class="form-control" />
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-6">
+          <label>Fim Vigência</label>
+          <input
+            type="date"
+            [(ngModel)]="contratotrabalho.fimVigencia"
+            id="fimVigencia"
+            name="fimVigencia"
+            class="form-control" />
+        </div>
+      </div>
+
+      <div class="position-absolute bottom-0 start-0 end-0 py-3 d-flex justify-content-center">
+        <div class="col-auto">
+          <button type="button" class="btn btn-secondary me-4" (click)="cancelar()">
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+            <i class="fa-solid fa-floppy-disk me-1"></i>
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

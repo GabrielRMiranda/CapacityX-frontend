@@ -1,0 +1,116 @@
+<div class="content-area position-relative" style="min-height: 100vh; padding-bottom: 80px;">
+  <form (ngSubmit)="salvar()" #formulario="ngForm" class="form-group">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <h4 class="my-3">
+            <span>Cadastro de Contratos de Trabalho</span>
+          </h4>
+          <p class="divisor_secundario"></p>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="form-group col-4">
+          <label for="nivelTecnico">Nível Técnico</label>
+          <select [(ngModel)]="contratotrabalho.nivelTecnico" id="nivelTecnico" name="nivelTecnico" class="form-control" required #nivelTecnico="ngModel">
+            <option [ngValue]="0" selected>Selecionar</option>
+            <option [ngValue]="1">Júnior</option>
+            <option [ngValue]="2">Pleno</option>
+            <option [ngValue]="3">Sênior</option>
+            <option [ngValue]="4">Especialista</option>
+            <option [ngValue]="5">Coordenador</option>
+            <option [ngValue]="6">Trainee</option>
+          </select>
+          <div *ngIf="nivelTecnico.invalid && nivelTecnico.touched" class="invalid-feedback">
+            O campo Nível Técnico é obrigatório.
+          </div>
+        </div>
+
+        <div class="form-group col-4">
+          <label for="cargaHoraria">Carga Horária</label>
+          <input
+            type="text"
+            mask="00:00"
+            [(ngModel)]="contratotrabalho.cargaHoraria"
+            id="cargaHoraria"
+            name="cargaHoraria"
+            class="form-control"
+            (input)="onHoraInput($event)"
+            maxlength="5"
+            placeholder="HH:MM"
+            required
+            #cargaHoraria="ngModel"
+          />
+          <div *ngIf="cargaHoraria.invalid && cargaHoraria.touched" class="invalid-feedback">
+            O campo Carga Horária é obrigatório.
+          </div>
+        </div>
+
+        <div class="form-group col-4">
+          <label for="status">Status</label>
+          <select [(ngModel)]="contratotrabalho.status" id="status" name="status" class="form-control" required #status="ngModel">
+            <option [ngValue]="''" selected>Selecionar</option>
+            <option [ngValue]="'Ativo'">Ativo</option>
+            <option [ngValue]="'Inativo'">Inativo</option>
+          </select>
+          <div *ngIf="status.invalid && status.touched" class="invalid-feedback">
+            O campo Status é obrigatório.
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="inicioVigencia">Início Vigência</label>
+            <input
+              type="date"
+              [(ngModel)]="contratotrabalho.inicioVigencia"
+              id="inicioVigencia"
+              name="inicioVigencia"
+              class="form-control"
+              required
+              #inicioVigencia="ngModel" />
+
+            <div *ngIf="inicioVigencia.invalid && inicioVigencia.touched" class="invalid-feedback">
+              O campo Início Vigência é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="fimVigencia">Fim Vigência</label>
+            <input
+              type="date"
+              [(ngModel)]="contratotrabalho.fimVigencia"
+              id="fimVigencia"
+              name="fimVigencia"
+              class="form-control"
+              #fimVigencia="ngModel"
+              [readonly]="contratotrabalho.status !== 'Ativo'"/>
+            <!-- <div *ngIf="fimVigencia.invalid && fimVigencia.touched" class="invalid-feedback">
+              O campo Fim Vigência é obrigatório.
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="position-absolute bottom-0 start-0 end-0 py-3 d-flex justify-content-center">
+        <div class="col-auto">
+          <button type="button" class="btn btn-secondary me-4" (click)="cancelar()">
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+            <i class="fa-solid fa-floppy-disk me-1"></i>
+            Salvar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
