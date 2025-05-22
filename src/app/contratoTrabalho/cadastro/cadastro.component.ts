@@ -27,23 +27,23 @@ export class CadastroComponent {
   constructor(
     private contratoTrabalhoService: ContratosTrabalhosService,
     private router: Router
-  ){}
+  ) { }
 
-  salvar(){
+  salvar() {
 
     this.contratotrabalho.inicioVigencia = new Date(this.contratotrabalho.inicioVigencia).toISOString();
     this.contratotrabalho.fimVigencia = new Date(this.contratotrabalho.fimVigencia).toISOString();
 
-    if(this.contratotrabalho.inicioVigencia > this.contratotrabalho.fimVigencia){
+    if (this.contratotrabalho.inicioVigencia > this.contratotrabalho.fimVigencia) {
       alert('O início de vigência deve ser inferior ao fim de vigência');
-    } else{
-      this.contratoTrabalhoService.cadastrarContratoTrabalho(this.contratotrabalho).subscribe(() =>{
+    } else {
+      this.contratoTrabalhoService.cadastrarContratoTrabalho(this.contratotrabalho).subscribe(() => {
         this.router.navigate(['/listagem']);
       })
     }
   }
 
-  cancelar(){
+  cancelar() {
     this.router.navigate(['/listagem']);
   }
 

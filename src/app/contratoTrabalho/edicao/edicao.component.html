@@ -14,19 +14,21 @@
       <div class="row mb-4">
         <div class="col-12 col-sm-6 col-md-4">
           <label>Nivel Técnico</label>
-           <select [(ngModel)]="contratotrabalho.nivelTecnico" id="nivelTecnico" name="nivelTecnico" class="form-control">
+          <select [(ngModel)]="contratotrabalho.nivelTecnico" id="nivelTecnico" name="nivelTecnico"
+            class="form-control">
             <option [ngValue]="1" selected>Junior</option>
             <option [ngValue]="2" selected>Pleno</option>
             <option [ngValue]="3" selected>Sênior</option>
             <option [ngValue]="4" selected>Especialista</option>
             <option [ngValue]="5" selected>Coordenador</option>
             <option [ngValue]="6" selected>Trainee</option>
-           </select>
+          </select>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4">
           <label>Carga Horária</label>
-          <input type="text" [(ngModel)]="hora" id="cargaHoraria" name="cargaHoraria" class="form-control" (input)="formatarHora($event)" maxlength="5"/>
+          <input type="text" [(ngModel)]="hora" id="cargaHoraria" name="cargaHoraria" class="form-control"
+            (input)="formatarHora($event)" maxlength="5" />
         </div>
 
         <div class="col-12 col-sm-6 col-md-4">
@@ -38,21 +40,13 @@
       <div class="row mb-4">
         <div class="col-12 col-sm-6 col-md-6">
           <label>Início Vigência</label>
-          <input
-            type="date"
-            [(ngModel)]="contratotrabalho.inicioVigencia"
-            id="inicioVigencia"
-            name="inicioVigencia"
+          <input type="date" [(ngModel)]="contratotrabalho.inicioVigencia" id="inicioVigencia" name="inicioVigencia"
             class="form-control" />
         </div>
 
         <div class="col-12 col-sm-6 col-md-6">
           <label>Fim Vigência</label>
-          <input
-            type="date"
-            [(ngModel)]="contratotrabalho.fimVigencia"
-            id="fimVigencia"
-            name="fimVigencia"
+          <input type="date" [(ngModel)]="contratotrabalho.fimVigencia" id="fimVigencia" name="fimVigencia"
             class="form-control" />
         </div>
       </div>

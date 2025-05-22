@@ -25,8 +25,6 @@ export class ContratosTrabalhosService {
   }
 
   atualizarContratoTrabalho(id: number, ContratoTrabalho: contratoTrabalho): Observable<contratoTrabalho>{
-    /*Colocar os itens que podem ser atualizados*/
-
     return this.http.patch<contratoTrabalho>(`${this.apiUrl}/${id}`, ContratoTrabalho);
   }
 

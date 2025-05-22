@@ -11,7 +11,7 @@ import { contratoTrabalho } from '../contratoTrabalho.model';
   templateUrl: './edicao.component.html',
   styleUrl: './edicao.component.css'
 })
-export class EdicaoComponent implements OnInit{
+export class EdicaoComponent implements OnInit {
 
   contratotrabalho?: contratoTrabalho;
   private id!: number;
@@ -20,21 +20,21 @@ export class EdicaoComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private contratoTrabalhoService : ContratosTrabalhosService
-  ){}
+    private contratoTrabalhoService: ContratosTrabalhosService
+  ) { }
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.carregarContratoTrabalho();
   }
 
-  carregarContratoTrabalho(): void{
-    if(!this.id || isNaN(this.id)){
+  carregarContratoTrabalho(): void {
+    if (!this.id || isNaN(this.id)) {
       this.router.navigate(['/listagem']);
       return;
     }
 
-    this.contratoTrabalhoService.buscaContratoTrabalho(this.id).subscribe((ct) =>{
+    this.contratoTrabalhoService.buscaContratoTrabalho(this.id).subscribe((ct) => {
       this.hora = ct.cargaHoraria;
 
       this.contratotrabalho = {
@@ -46,20 +46,20 @@ export class EdicaoComponent implements OnInit{
     });
   }
 
-  salvar(): void{
-    if(!this.contratotrabalho) return
+  salvar(): void {
+    if (!this.contratotrabalho) return
 
     this.contratotrabalho.inicioVigencia = new Date(this.contratotrabalho.inicioVigencia).toISOString();
     this.contratotrabalho.fimVigencia = new Date(this.contratotrabalho.fimVigencia).toISOString();
     this.contratotrabalho.cargaHoraria = this.hora;
 
-    this.contratoTrabalhoService.atualizarContratoTrabalho(this.id, this.contratotrabalho).subscribe(() =>{
+    this.contratoTrabalhoService.atualizarContratoTrabalho(this.id, this.contratotrabalho).subscribe(() => {
       this.router.navigate(['/listagem']);
     })
 
   }
 
-  cancelar(){
+  cancelar() {
     this.router.navigate(['/listagem']);
   }
 

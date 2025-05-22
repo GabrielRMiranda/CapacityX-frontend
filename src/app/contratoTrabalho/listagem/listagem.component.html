@@ -16,7 +16,7 @@
               Início: {{ contrato.inicioVigencia | date: 'dd/MM/yyyy' }}<br>
               Fim: {{ contrato.fimVigencia | date: 'dd/MM/yyyy' }}
             </p>
-            <a  routerLink="/edicao/{{contrato.id}}" class="btn btn-primary mt-auto">
+            <a routerLink="/edicao/{{contrato.id}}" class="btn btn-primary mt-auto">
               <i class="fa-solid fa-pen-to-square"></i>
               Editar
             </a>
@@ -26,4 +26,3 @@
     </div>
   </form>
 </div>
-

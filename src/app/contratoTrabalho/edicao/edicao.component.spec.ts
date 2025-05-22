@@ -10,7 +10,7 @@ describe('EdicaoComponent', () => {
     await TestBed.configureTestingModule({
       imports: [EdicaoComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(EdicaoComponent);
     component = fixture.componentInstance;

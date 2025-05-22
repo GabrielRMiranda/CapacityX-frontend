@@ -23,12 +23,10 @@ export class ListagemComponent implements OnInit {
     this.carregarAlunos();
   }
 
-  carregarAlunos(): void{
+  carregarAlunos(): void {
     this.contratoTrabalhoService.listarContratoTrabalho().subscribe((res) => {
       this.contratosTrabalho = res;
     })
   }
-
-
 
 }
